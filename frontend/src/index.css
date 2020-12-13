@@ -63,8 +63,12 @@ main {
   padding: 1rem;
 }
 
-.raiting span {
-  color: gold;
+.rating span {
+  color: gold !important;
+  margin: 0.1rem;
+}
+.rating span:last-child {
+  color: black !important;
 }
 
 .row {

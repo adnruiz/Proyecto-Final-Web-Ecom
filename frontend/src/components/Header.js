@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <nav className="navbar navbar-expand-lg sticky-top">
       <div>
-        <a className="navbar-brand" href="index.html">
+        <a className="navbar-brand" href="/">
           <img className="header_logo" src="latte-art.png" alt="logotipo"></img>
           Moderat Workshop
         </a>
@@ -33,17 +33,17 @@ export default function Header() {
         </button>
         <ul className="navbar-nav">
           <li className="nav-item active">
-            <a className="nav-link" href="cart.html">
+            <a className="nav-link" href="/cart">
               Carrito<i className="fas fa-shopping-cart"></i>
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="signin.html">
+            <a className="nav-link" href="/signin">
               Iniciar Sesion
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="prime.html">
+            <a className="nav-link" href="/prime">
               Cuenta Prime
             </a>
           </li>
