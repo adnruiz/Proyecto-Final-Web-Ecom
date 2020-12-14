@@ -5,6 +5,7 @@ import MessageBox from "../components/MessageBox";
 import LoadingBox from "../components/LoadingBox";
 
 export default function HomeScreen() {
+  //Using react hooks
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
