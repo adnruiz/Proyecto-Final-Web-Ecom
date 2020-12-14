@@ -79,3 +79,10 @@ npm start
 
 1. Handle add to cart in ProductScreen.js
 2. create CartScreen.js
+
+# Implement add to cart action
+
+1. create addToCart constants, actions and reducers
+2. add reducer to store.js
+3. use action in CartScreen.js
+4. render cartItems

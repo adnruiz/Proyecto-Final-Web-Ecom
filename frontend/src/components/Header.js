@@ -1,14 +1,19 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 export default function Header() {
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
   return (
     <nav className="navbar navbar-expand-lg sticky-top">
       <div>
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           <img className="header_logo" src="latte-art.png" alt="logotipo"></img>
           Moderat Workshop
-        </a>
+        </Link>
       </div>
       <button
         className="navbar-toggler btn btn-outline-primary"
@@ -33,19 +38,22 @@ export default function Header() {
         </button>
         <ul className="navbar-nav">
           <li className="nav-item active">
-            <a className="nav-link" href="/cart">
+            <Link className="nav-link" to="/cart">
               Carrito<i className="fas fa-shopping-cart"></i>
-            </a>
+              {cartItems.length > 0 && (
+                <span className="badge badge-primary">{cartItems.length}</span>
+              )}
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/signin">
+            <Link className="nav-link" to="/signin">
               Iniciar Sesion
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/prime">
+            <Link className="nav-link" to="/prime">
               Cuenta Prime
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
