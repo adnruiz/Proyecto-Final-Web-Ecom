@@ -135,3 +135,22 @@ footer a:hover {
   box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
   border-radius: 5px;
 }
+
+.alert {
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1.5rem;
+  border: 0.1rem solid transparent;
+  border-radius: 0.5rem;
+}
+.alert-info {
+  color: blue;
+  background-color: white;
+}
+.alert-danger {
+  color: red;
+  background-color: white;
+}
