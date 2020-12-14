@@ -27,9 +27,6 @@ export default function Productos(props) {
             rating={product.rating}
             numReviews={product.numReviews}
           ></Raiting>
-          <button className="btn btn-primary btn-block btn-carrito">
-            <i className="fas fa-shopping-cart "></i>
-          </button>
         </div>
       </div>
     </div>
