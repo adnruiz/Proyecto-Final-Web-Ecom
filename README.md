@@ -33,3 +33,16 @@ npm start
 9. create route for /
 10. move products.js from frontend to backend
 11. create a route for /api/products
+
+# Load Products From Backend
+
+1. edit HomeScreen.js
+2. define products, loading and error.
+3. create useEffect
+4. define async fetchData and call it
+5. install axios
+6. get data from /api/products
+7. show then in the list
+8. create Loading Component
+9. create Message Box Component
+10. use then in HomeScreen
