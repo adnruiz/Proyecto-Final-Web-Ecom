@@ -22,14 +22,13 @@ export default function Productos(props) {
             <label>Precio:</label>
             <span className="badge badge-secondary">${product.price}</span>
           </div>
-          <span className="badge badge-success">Disponible</span>
           <p className="card-text">{product.description}</p>
           <Raiting
             rating={product.rating}
             numReviews={product.numReviews}
           ></Raiting>
-          <button href="#" className="btn btn-primary">
-            <i className="fas fa-shopping-cart"></i>
+          <button href="#" className="btn btn-primary btn-block btn-carrito">
+            <i className="fas fa-shopping-cart "></i>
           </button>
         </div>
       </div>

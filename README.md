@@ -11,3 +11,10 @@ We suggest that you begin by typing:
   cd frontend
   npm start
 
+Bulding Product Screen
+  1. Install react-router-dom
+  2. Use BrowserRouter and Route for Home Screen
+  3. Create HomeScreen
+  4. Add product list
+  5. Create productScreen
+  6. Add new Route from product details to App

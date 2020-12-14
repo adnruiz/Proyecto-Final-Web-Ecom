@@ -2,10 +2,12 @@ import React from "react";
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Productos from "./components/Productos";
-import data from "./data";
+import { BrowserRouter, Route } from "react-router-dom";
+import HomeScreen from "./screens/HomeScreen";
+import ProductScreen from "./screens/ProductScreen";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+
 <link
   rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -15,16 +17,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <div className="App">
-      <Header></Header>
-      <div class="row center pb-4 pt-4">
-        {data.products.map((product) => (
-          <Productos key={product._id} product={product}></Productos>
-        ))}
-      </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header></Header>
 
-      <Footer></Footer>
-    </div>
+        <Route path="/product/:id" component={ProductScreen}></Route>
+        <Route path="/" component={HomeScreen} exact></Route>
+
+        <Footer></Footer>
+      </div>
+    </BrowserRouter>
   );
 }
 

@@ -77,6 +77,7 @@ main {
   justify-content: space-between;
   align-items: center;
 }
+
 .row.center {
   justify-content: center;
 }
@@ -88,11 +89,15 @@ main {
   max-width: 29rem;
   width: 100%;
 }
+.img.large {
+  width: 100%;
+}
 .card {
   border: 1rem #131921;
   background-color: blue;
   border-radius: 0.5rem;
   margin: 1rem;
+  text-decoration: none;
 }
 .card.body {
   padding: 1rem;

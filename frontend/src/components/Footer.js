@@ -14,6 +14,9 @@ export default function Footer() {
           <div className="col-12 col-md">
             <a href="Info.html">¿Quienes somos?</a>
           </div>
+          <div className="col-12 col-md">
+            <a href="Info.html">Quejas y Sugerencias</a>
+          </div>
         </div>
 
         <div className="row text-center">
