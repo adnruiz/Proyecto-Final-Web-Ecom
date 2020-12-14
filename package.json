@@ -1,0 +1,26 @@
+{
+  "name": "final_mworkshop",
+  "version": "1.0.0",
+  "description": "# Create react app (frontend) npx create-react-app frontend",
+  "main": "index.js",
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "scripts": {
+    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adnruiz/Proyecto-Final-Web-Ecom.git"
+  },
+  "author": "Adan Ruiz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adnruiz/Proyecto-Final-Web-Ecom/issues"
+  },
+  "homepage": "https://github.com/adnruiz/Proyecto-Final-Web-Ecom#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

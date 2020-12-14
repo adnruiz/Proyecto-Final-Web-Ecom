@@ -68,7 +68,7 @@ export default function ProductScreen(props) {
                   )}
                 </div>
               </li>
-              <li className="row">
+              <li className="row compras">
                 <button className="btn btn-primary btn-block btn-carrito">
                   <i className="fas fa-shopping-cart fa-2x"></i>
                 </button>

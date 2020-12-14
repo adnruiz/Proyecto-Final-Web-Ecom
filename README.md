@@ -1,6 +1,6 @@
 # ProyectoFinal_web_emoc
 
-Create react app (frontend) npx create-react-app frontend
+# Create react app (frontend) npx create-react-app frontend
 
 npm start --> Starts the development server.
 npm run build --> Bundles the app into static files for production.
@@ -8,13 +8,28 @@ npm test --> Starts the test runner.
 npm run eject --> Removes this tool and copies build dependencies, configuration files and scripts into the app directory. If you do this, you can’t go back!
 
 We suggest that you begin by typing:
-  cd frontend
-  npm start
+cd frontend
+npm start
 
-Bulding Product Screen
-  1. Install react-router-dom
-  2. Use BrowserRouter and Route for Home Screen
-  3. Create HomeScreen
-  4. Add product list
-  5. Create productScreen
-  6. Add new Route from product details to App
+# Bulding Product Screen
+
+1. Install react-router-dom
+2. Use BrowserRouter and Route for Home Screen
+3. Create HomeScreen
+4. Add product list
+5. Create productScreen
+6. Add new Route from product details to App
+
+# Crating Node.js Server
+
+1. run npm init in root folder
+2. update package.json setting type 'module'
+3. Add .js to imports
+4. npm to install express
+5. creating server.js
+6. installing nodemon to listen to changes
+7. add start command as node backend/server.js
+8. require express
+9. create route for /
+10. move products.js from frontend to backend
+11. create a route for /api/products
