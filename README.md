@@ -54,3 +54,16 @@ npm start
 3. run ./node_modules/.bin/eslint --init
 4. create ./frontend/.env
 5. add SKIP_PREFLIGHT_CHEACK=true
+
+# Add Redux to HomeScreen
+
+1. npm install redux react-redux
+2. create store.js
+3. initState = {products:[]}
+4. reducer = (state, action) => switch LOAD_PRODUCTS: {products: action.payload}
+5. export default createStore(reducer, initState)
+6. edit hHomeScreen
+7. shopName = useSelector(reducer, initState)
+8. const dispatch = useDispatch
+9. useEffect(()=>dispatch({type: LOAD_PRODUCTS, payload: data}))
+10. Add store to index.js
