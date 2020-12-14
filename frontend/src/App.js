@@ -7,6 +7,7 @@ import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import CartScreen from "./screens/CartScreen";
 
 <link
   rel="stylesheet"
@@ -20,7 +21,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header></Header>
-
+        <Route path="/cart/:id?" component={CartScreen}></Route>
         <Route path="/product/:id" component={ProductScreen}></Route>
         <Route path="/" component={HomeScreen} exact></Route>
 

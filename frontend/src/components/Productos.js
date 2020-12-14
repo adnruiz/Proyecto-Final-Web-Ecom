@@ -1,9 +1,9 @@
-import React from "react";
 import "./Productos.css";
 import Raiting from "./Rating";
 
 export default function Productos(props) {
   const { product } = props;
+
   return (
     <div className="col pb-4 pt-3">
       <div key={product._id} className="card align-items-center pb-3 pt-3">
@@ -27,7 +27,7 @@ export default function Productos(props) {
             rating={product.rating}
             numReviews={product.numReviews}
           ></Raiting>
-          <button href="#" className="btn btn-primary btn-block btn-carrito">
+          <button className="btn btn-primary btn-block btn-carrito">
             <i className="fas fa-shopping-cart "></i>
           </button>
         </div>
