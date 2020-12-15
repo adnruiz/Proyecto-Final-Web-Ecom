@@ -1,5 +1,6 @@
-import express from "express";
-import data from "./data.js";
+const express = require("express");
+const routes = require("./routes/routes");
+const productController = require("./controllers/products");
 
 const app = express();
 
