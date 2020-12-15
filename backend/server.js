@@ -1,24 +1,17 @@
 const express = require("express");
-const routes = require("./routes/routes");
 const productController = require("./controllers/products");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
 const app = express();
+mongoose.connect("mongodb://localhost/ecomerce", { useNewUrlParser: true });
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/api", productController.createProduct);
 
 // simple route
 app.get("/", (req, res) => {
   res.send("Welcome to the application.");
-});
-//routes
-app.get("/api/products", (req, res) => {
-  res.json(data.products);
-});
-app.get("/api/products/:id", (req, res) => {
-  const product = data.products.find((x) => x._id === req.params.id);
-  if (product) {
-    res.send(product);
-  } else {
-    res.status(404).send({ message: "Poducto no encontrado" });
-  }
 });
 
 // set port, listen for requests

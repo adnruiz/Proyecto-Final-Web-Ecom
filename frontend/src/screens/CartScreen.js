@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { addToCart } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 import MessageBox from "../components/MessageBox";
 import "./CartScreen.css";
 
@@ -22,7 +22,7 @@ export default function CartScreen(props) {
   }, [dispatch, productId, qty]);
 
   const removeFromCartHandler = (id) => {
-    //delete action
+    dispatch(removeFromCart(id));
   };
 
   const checkoutHandler = () => {
@@ -30,9 +30,9 @@ export default function CartScreen(props) {
   };
 
   return (
-    <div className="row top prod">
+    <div className="row top prod pl-3">
       <h1>Carrito de compras</h1>
-      <div className="col-12 descprod card card-item">
+      <div className="col-12 card align-items-center ">
         {cartItems.length === 0 ? (
           <MessageBox>
             Carrito vacio. <Link to="/">Observa nuestros productos</Link>
@@ -40,7 +40,7 @@ export default function CartScreen(props) {
         ) : (
           <ul>
             {cartItems.map((item) => (
-              <li key={item.product}>
+              <li key={item.product} className="card card-item p-4">
                 <div className="row">
                   <div>
                     <img
@@ -52,9 +52,9 @@ export default function CartScreen(props) {
                   <div className="min-30">
                     <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </div>
-                  <div>
+                  <div className="pr-3">
                     <select
-                      className="badge badge-pill"
+                      className="bg-light text-dark"
                       value={item.qty}
                       onChange={(e) =>
                         dispatch(
@@ -69,8 +69,8 @@ export default function CartScreen(props) {
                       ))}
                     </select>
                   </div>
-                  <div>
-                    <span className="badge badge-info">${item.price}</span>
+                  <div className="pr-3 ">
+                    <span className="badge badge-info w-10">${item.price}</span>
                   </div>
                   <div>
                     <button
@@ -78,7 +78,7 @@ export default function CartScreen(props) {
                       type="button"
                       onClick={() => removeFromCartHandler(item.product)}
                     >
-                      <i class="fas fa-trash-alt fa-2x"></i>
+                      <i class="fas fa-trash-alt "></i>
                     </button>
                   </div>
                 </div>
@@ -87,7 +87,7 @@ export default function CartScreen(props) {
           </ul>
         )}
       </div>
-      <div className="col-12">
+      <div className="col-12 ">
         <div className="card card-body">
           <ul>
             <li>

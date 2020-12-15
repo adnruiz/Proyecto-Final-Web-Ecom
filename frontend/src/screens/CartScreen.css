@@ -6,17 +6,9 @@
   width: 100%;
 }
 .prod {
-  display: table;
-  margin-right: 8rem;
-  margin-left: 5rem;
-  padding-right: 5rem;
+  display: inline-block;
 }
 select {
   border-radius: 0.5rem;
 }
-.descprod {
-  display: table;
-  margin-right: 10rem;
-  margin-left: 5rem;
-  padding-right: 5rem;
-}
+
