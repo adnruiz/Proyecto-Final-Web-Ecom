@@ -1,5 +1,16 @@
 const ProductsService = require("../services/products");
 
+const viewingProducts = (req, res) => {
+  ProductsService.viewingProducts()
+    .then((products) => {
+      return res.status(201).send(products);
+    })
+    .catch((error) => {
+      console.log("Error viewing product", error);
+      return res.status(500).send("Error viewing product");
+    });
+};
+
 const createProduct = (req, res) => {
   const {
     name,
@@ -39,4 +50,5 @@ const createProduct = (req, res) => {
 
 module.exports = {
   createProduct,
+  viewingProducts,
 };
