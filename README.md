@@ -86,3 +86,11 @@ npm start
 2. add reducer to store.js
 3. use action in CartScreen.js
 4. render cartItems
+
+# Implement Cart Screen
+
+1. Create 2 columns for cart items and cart actions
+2. cartItems === 0 ? cart is empty
+3. show item image, name, qty and price
+4. procide to cheackout btn
+5. Remove item from cart btn
