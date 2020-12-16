@@ -17,9 +17,14 @@ const updateProduct = (productId, product, options) => {
   return Products.findOneAndUpdate(productId, product, options);
 };
 
+const deleteProduct = (productId) => {
+  return Products.findByIdAndRemove(productId);
+};
+
 module.exports = {
   createProduct,
   getProducts,
   getProduct,
   updateProduct,
+  deleteProduct,
 };

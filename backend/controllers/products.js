@@ -24,6 +24,18 @@ const getProduct = (req, res) => {
     });
 };
 
+const deleteProduct = (req, res) => {
+  const { productId } = req.params;
+  ProductsService.deleteProduct(productId)
+    .then((product) => {
+      return res.status(500).send(product);
+    })
+    .catch((error) => {
+      console.log("Error deleting products", error);
+      return res.status(500).send("Error deleting products");
+    });
+};
+
 const updateProduct = (req, res) => {
   const { productId } = req.params;
   const {
@@ -121,4 +133,5 @@ module.exports = {
   getProducts,
   getProduct,
   updateProduct,
+  deleteProduct,
 };
