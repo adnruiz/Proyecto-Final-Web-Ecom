@@ -1,5 +1,4 @@
 const express = require("express");
-const productController = require("./controllers/products");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const routes = require("./routes/routes");
@@ -21,7 +20,6 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT || 4200;
 
 mongoose.set("useFindAndModify", false);
-
 mongoose.connect(mongoURL, { useNewUrlParser: true }).then(() => {
   console.log("Connected to mongoDB");
   app.listen(PORT, () => {

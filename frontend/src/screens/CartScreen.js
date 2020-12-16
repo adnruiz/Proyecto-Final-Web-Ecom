@@ -60,7 +60,7 @@ export default function CartScreen(props) {
                     </div>
                     <div className="row ">
                       <div>
-                        Cantidad:
+                        Cantidad: 
                         <select
                           className="bg-light text-dark"
                           value={item.qty}

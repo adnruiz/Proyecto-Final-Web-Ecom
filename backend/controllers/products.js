@@ -1,4 +1,3 @@
-const products = require("../models/products");
 const ProductsService = require("../services/products");
 
 const getProducts = (req, res) => {

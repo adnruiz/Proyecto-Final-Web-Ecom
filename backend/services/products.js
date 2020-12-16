@@ -1,4 +1,3 @@
-const products = require("../models/products");
 const Products = require("../models/products");
 
 const createProduct = (product) => {
