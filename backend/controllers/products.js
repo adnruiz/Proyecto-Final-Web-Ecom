@@ -24,6 +24,49 @@ const getProduct = (req, res) => {
     });
 };
 
+const updateProduct = (req, res) => {
+  const { productId } = req.params;
+  const {
+    name,
+    category,
+    image,
+    price,
+    countInStock,
+    brand,
+    rating,
+    numReviews,
+    description,
+  } = req.body;
+
+  if (
+    !name ||
+    !category ||
+    !image ||
+    !price ||
+    !countInStock ||
+    !brand ||
+    !rating ||
+    !numReviews ||
+    !description
+  ) {
+    return res.status(400).send("Missing Params!");
+  }
+
+  ProductsService.updateProduct(
+    { _id: productId },
+    { $set: { producto: req.body } },
+    { new: true }
+  )
+    .then((producto) => {
+      console.log(producto);
+      return res.status(201).send(producto);
+    })
+    .catch((error) => {
+      console.log("Error updating product", error);
+      return res.status(500).send("Error updating product");
+    });
+};
+
 const createProduct = (req, res) => {
   const {
     name,
@@ -65,4 +108,5 @@ module.exports = {
   createProduct,
   getProducts,
   getProduct,
+  updateProduct,
 };

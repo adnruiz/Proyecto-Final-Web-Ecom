@@ -1,3 +1,4 @@
+const products = require("../models/products");
 const Products = require("../models/products");
 
 const createProduct = (product) => {
@@ -12,8 +13,13 @@ const getProduct = (productId) => {
   return Products.findById(productId);
 };
 
+const updateProduct = (productId, product, options) => {
+  return Products.findOneAndUpdate(productId, product, options);
+};
+
 module.exports = {
   createProduct,
   getProducts,
   getProduct,
+  updateProduct,
 };
