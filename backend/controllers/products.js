@@ -1,13 +1,26 @@
+const products = require("../models/products");
 const ProductsService = require("../services/products");
 
-const viewingProducts = (req, res) => {
-  ProductsService.viewingProducts()
+const getProducts = (req, res) => {
+  ProductsService.getProducts()
     .then((products) => {
       return res.status(201).send(products);
     })
     .catch((error) => {
-      console.log("Error viewing product", error);
-      return res.status(500).send("Error viewing product");
+      console.log("Error viewing products", error);
+      return res.status(500).send("Error viewing products");
+    });
+};
+
+const getProduct = (req, res) => {
+  const { productId } = req.params;
+  ProductsService.getProduct(productId)
+    .then((product) => {
+      return res.send(product);
+    })
+    .catch((error) => {
+      console.log("Error viewing products", error);
+      return res.status(500).send("Error viewing products");
     });
 };
 
@@ -50,5 +63,6 @@ const createProduct = (req, res) => {
 
 module.exports = {
   createProduct,
-  viewingProducts,
+  getProducts,
+  getProduct,
 };

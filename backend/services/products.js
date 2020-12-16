@@ -4,11 +4,16 @@ const createProduct = (product) => {
   return Products.create(product);
 };
 
-const viewingProducts = () => {
+const getProducts = () => {
   return Products.find({});
+};
+
+const getProduct = (productId) => {
+  return Products.findById(productId);
 };
 
 module.exports = {
   createProduct,
-  viewingProducts,
+  getProducts,
+  getProduct,
 };
