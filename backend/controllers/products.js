@@ -54,7 +54,19 @@ const updateProduct = (req, res) => {
 
   ProductsService.updateProduct(
     { _id: productId },
-    { $set: { producto: req.body } },
+    {
+      $set: {
+        name: req.body.name,
+        category: req.body.category,
+        image: req.body.image,
+        price: req.body.price,
+        countInStock: req.body.countInStock,
+        brand: req.body.brand,
+        rating: req.body.rating,
+        numReviews: req.body.numReviews,
+        description: req.body.description,
+      },
+    },
     { new: true }
   )
     .then((producto) => {
