@@ -12,5 +12,6 @@ router.delete("/products/:productId", productController.deleteProduct);
 
 //Users
 router.post("/users", userController.createUser);
+router.post("/users/signin", userController.signinUser);
 
 module.exports = router;

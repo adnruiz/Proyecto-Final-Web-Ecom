@@ -2,8 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const routes = require("./routes/routes");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const app = express();
+
 const mongoURL = "mongodb://localhost/ecomerce";
 
 app.use(bodyParser.json());
