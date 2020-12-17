@@ -1,11 +1,19 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { signout } from "../actions/userActions";
 import "./Header.css";
 
 export default function Header() {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+  const dispatch = useDispatch();
+  const signoutHandler = () => {
+    dispatch(signout());
+  };
 
   return (
     <nav className="navbar navbar-expand-lg sticky-top">
@@ -37,6 +45,33 @@ export default function Header() {
           <i className="fas fa-search"></i>
         </button>
         <ul className="navbar-nav">
+          <li className="nav-item">
+            {userInfo ? (
+              <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <Link to="#">{userInfo.name}</Link>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <ul className="dropdown-item">
+                    <Link to="#signout" onClick={signoutHandler}>
+                      Cerrar sesion <i class="fas fa-sign-out-alt"></i>
+                    </Link>
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <Link className="nav-link" to="/signin">
+                Iniciar Sesion
+              </Link>
+            )}
+          </li>
           <li className="nav-item active">
             <Link className="nav-link" to="/cart">
               Carrito<i className="fas fa-shopping-cart"></i>
@@ -45,18 +80,10 @@ export default function Header() {
               )}
             </Link>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/signin">
-              Iniciar Sesion
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/prime">
-              Cuenta Prime
-            </Link>
-          </li>
         </ul>
       </div>
     </nav>
   );
-}
+} /*
+
+                */

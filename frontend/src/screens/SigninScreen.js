@@ -1,16 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { signin } from "../actions/userActions";
 import "./SigninScreen.css";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
 
-export default function SigninScreen() {
+export default function SigninScreen(props) {
   //react hook
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const dispatch = useDispatch();
+
+  const redirect = props.location.search
+    ? props.location.search.split("=")[1]
+    : "/";
+
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo, error, loading } = userSignin;
+
   const submitHandler = (e) => {
     e.preventDefault();
     //Signin action
+    dispatch(signin(email, password));
   };
+
+  useEffect(() => {
+    if (userInfo) {
+      props.history.push(redirect);
+    }
+  }, [props.history, redirect, userInfo]);
 
   return (
     <div>
@@ -18,6 +38,8 @@ export default function SigninScreen() {
         <div>
           <h1>Inicia Sesion</h1>
         </div>
+        {loading && <LoadingBox></LoadingBox>}
+        {error && <MessageBox variant="danger">{error}</MessageBox>}
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Correo: </label>
           <input
