@@ -2,21 +2,25 @@ const UsersService = require("../services/usersService");
 const bcrypt = require("bcryptjs");
 const { generateToken } = require("../utils");
 
-const createUser = (req, res) => {
+const createUser = async (req, res) => {
   const { name, email, password } = req.body;
   req.body.password = bcrypt.hashSync(req.body.password, 8);
   if (!name || !email || !password) {
     return res.status(400).send("Missing Params!");
   }
-
-  UsersService.createUser(req.body)
-    .then((user) => {
-      return res.status(201).send(user);
-    })
-    .catch((error) => {
-      console.log("Error creating user", error);
-      return res.status(500).send("Error creating user");
-    });
+  const user = await UsersService.findUser({ email: req.body.email });
+  if (!user) {
+    UsersService.createUser(req.body)
+      .then((user) => {
+        return res.status(201).send(user);
+      })
+      .catch((error) => {
+        console.log("Error creating user", error);
+        return res.status(500).send({ message: "Error creating user" });
+      });
+  } else {
+    return res.status(400).send({ message: "El correo ya esta en uso!" });
+  }
 };
 
 const signinUser = async (req, res) => {
@@ -45,7 +49,7 @@ const updateUser = (req, res) => {
   const { name, email, isAdmin, password } = req.body;
 
   if (!name || !email || !password || !isAdmin) {
-    return res.status(400).send("Missing Params!");
+    return res.status(400).send({message:"faltan campos por llenar!"});
   }
 
   UsersService.updateUser(

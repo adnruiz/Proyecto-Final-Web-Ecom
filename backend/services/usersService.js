@@ -12,6 +12,10 @@ const updateUser = (userId, user, options) => {
   return Users.findOneAndUpdate(userId, user, options);
 };
 
+const findUser = (email) => {
+  return Users.findOne(email);
+};
+
 const deleteUser = (userId) => {
   return Users.findByIdAndRemove(userId);
 };
@@ -21,4 +25,5 @@ module.exports = {
   signinUser,
   updateUser,
   deleteUser,
+  findUser,
 };

@@ -11,7 +11,7 @@ router.put("/products/:productId", productController.updateProduct);
 router.delete("/products/:productId", productController.deleteProduct);
 
 //Users
-router.post("/users", userController.createUser);
+router.post("/users/register", userController.createUser);
 router.post("/users/signin", userController.signinUser);
 router.put("/users/:userId", userController.updateUser);
 router.delete("/users/:userId", userController.deleteUser);

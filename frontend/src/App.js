@@ -9,6 +9,7 @@ import ProductScreen from "./screens/ProductScreen";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CartScreen from "./screens/CartScreen";
 import SigninScreen from "./screens/SigninScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 
 <link
   rel="stylesheet"
@@ -26,6 +27,7 @@ function App() {
         <Route path="/product/:id" component={ProductScreen}></Route>
         <Route path="/" component={HomeScreen} exact></Route>
         <Route path="/signin" component={SigninScreen}></Route>
+        <Route path="/register" component={RegisterScreen}></Route>
         <Footer></Footer>
       </div>
     </BrowserRouter>
