@@ -32,9 +32,12 @@ const signinUser = async (req, res) => {
         token: generateToken(user),
       });
       return console.log("Bienvenido ", { name: user.name });
+    } else {
+      res.status(401).send({ message: "Cntraseña invalida" });
     }
+  } else {
+    res.status(401).send({ message: "Correo invalido" });
   }
-  res.status(401).send({ message: "Correo o contraaseña invalido" });
 };
 
 const updateUser = (req, res) => {
