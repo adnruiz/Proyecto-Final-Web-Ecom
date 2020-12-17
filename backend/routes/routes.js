@@ -13,5 +13,7 @@ router.delete("/products/:productId", productController.deleteProduct);
 //Users
 router.post("/users", userController.createUser);
 router.post("/users/signin", userController.signinUser);
+router.put("/users/:userId", userController.updateUser);
+router.delete("/users/:userId", userController.deleteUser);
 
 module.exports = router;

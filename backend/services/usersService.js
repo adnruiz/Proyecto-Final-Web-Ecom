@@ -8,7 +8,17 @@ const signinUser = (email) => {
   return Users.findOne(email);
 };
 
+const updateUser = (userId, user, options) => {
+  return Users.findOneAndUpdate(userId, user, options);
+};
+
+const deleteUser = (userId) => {
+  return Users.findByIdAndRemove(userId);
+};
+
 module.exports = {
   createUser,
   signinUser,
+  updateUser,
+  deleteUser,
 };
