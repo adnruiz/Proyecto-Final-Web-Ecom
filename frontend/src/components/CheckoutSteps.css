@@ -1,5 +1,5 @@
 .checkout-steps > div {
-  border-top: 0.3rem black;
+  border-top: 0.3rem black solid;
   color: black;
   flex: 1;
   padding: 1rem;

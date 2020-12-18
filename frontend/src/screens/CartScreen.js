@@ -1,4 +1,3 @@
-import { disconnect } from "mongoose";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -60,7 +59,7 @@ export default function CartScreen(props) {
                     </div>
                     <div className="row ">
                       <div>
-                        Cantidad: 
+                        Cantidad:
                         <select
                           className="bg-light text-dark"
                           value={item.qty}

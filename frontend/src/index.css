@@ -110,8 +110,6 @@ main {
   margin-bottom: 1rem;
 }
 
-
-
 footer {
   grid-area: footer;
   background-color: #131921;
@@ -160,4 +158,18 @@ footer a:hover {
 .alert-danger {
   color: red;
   background-color: white;
+}
+.checkout-steps > div {
+  border-top: 0.3rem black solid;
+  color: black;
+  flex: 1;
+  padding: 1rem;
+}
+
+.checkout-steps > div.active {
+  border-top-color: #2196f3;
+  color: #2196f3;
+}
+.text {
+  border-radius: 0.5rem;
 }
