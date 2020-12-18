@@ -1,9 +1,9 @@
 const DirectionsController = require("../services/directionsService");
 
 const createDirection = (req, res) => {
-  const { userId,  direction, location, estado, cp } = req.body;
+  const { userId, direction, location, estado, cp } = req.body;
 
-  if (!userId  || !direction || !location || !estado || !cp) {
+  if (!userId || !direction || !location || !estado || !cp) {
     return res.status(400).send("Missing Params!");
   }
 
