@@ -12,6 +12,7 @@ import SigninScreen from "./screens/SigninScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ShippingAdressScreen from "./screens/ShippingAdressScreen";
 import PaymentScreen from "./screens/PaymentScreen";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 
 <link
   rel="stylesheet"
@@ -31,6 +32,7 @@ function App() {
         <Route path="/register" component={RegisterScreen}></Route>
         <Route path="/shipping" component={ShippingAdressScreen}></Route>
         <Route path="/payment" component={PaymentScreen}></Route>
+        <Route path="/placeorder" component={PlaceOrderScreen}></Route>
         <Route path="/" component={HomeScreen} exact></Route>
         <Footer></Footer>
       </div>
