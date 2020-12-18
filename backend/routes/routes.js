@@ -2,6 +2,7 @@ const express = require("express");
 const productController = require("../controllers/products");
 const userController = require("../controllers/usersController");
 const directionsController = require("../controllers/directionController");
+const ordersController = require("../controllers/ordersController");
 const router = express.Router();
 
 //Products
@@ -19,5 +20,8 @@ router.delete("/users/:userId", userController.deleteUser);
 
 //directions
 router.post("/directions/register", directionsController.createDirection);
+
+//orders
+router.post("/orders", ordersController.createOrder);
 
 module.exports = router;
