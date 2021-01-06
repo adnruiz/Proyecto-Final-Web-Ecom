@@ -1,21 +1,7 @@
 const Orders = require("../models/orderSchema");
 
-const createOrder = (
-  orderItems,
-  shippingAddress,
-  paymentMethod,
-  itemsPrice,
-  shippingPrice,
-  totalPrice
-) => {
-  return Orders.create(
-    orderItems,
-    shippingAddress,
-    paymentMethod,
-    itemsPrice,
-    shippingPrice,
-    totalPrice
-  );
+const createOrder = (Order) => {
+  return Orders.create(Order);
 };
 
 module.exports = {

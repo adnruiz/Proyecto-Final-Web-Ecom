@@ -2,9 +2,9 @@ const OrderService = require("../services/ordersService");
 const { isAuth } = require("../utils");
 
 const createOrder = (req, res) => {
-  isAuth; 
+  isAuth;
   const {
-    orderItems,
+    orderItem,
     shippingAddress,
     paymentMethod,
     itemsPrice,
@@ -13,7 +13,7 @@ const createOrder = (req, res) => {
   } = req.body;
 
   if (
-    !orderItems ||
+    !orderItem ||
     !shippingAddress ||
     !paymentMethod ||
     !itemsPrice ||
@@ -22,17 +22,9 @@ const createOrder = (req, res) => {
   ) {
     return res.status(400).send({ message: "Missing Params!" });
   }
-  OrderService.createOrder(
-    req.body.orderItems,
-    req.body.shippingAddress,
-    req.body.paymentMethod,
-    req.body.itemsPrice,
-    req.body.shippingPrice,
-    req.body.totalPrice,
-    req.user._id
-  )
+  OrderService.createOrder(req.body)
     .then((order) => {
-      return res.status(201).send({ message: "Orden creada con exito" }, order);
+      return res.send({ message: "Orden creada con exito" }, order);
     })
     .catch((error) => {
       console.log("Error creating product", error);
