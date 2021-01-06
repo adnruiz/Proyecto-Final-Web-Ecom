@@ -14,6 +14,7 @@ export default function PaymentScreen(props) {
   const [paymentMethod, setPaymentMethod] = useState("PayPal");
 
   const dispatch = useDispatch();
+
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(savePaymentMethod(paymentMethod));
@@ -24,7 +25,7 @@ export default function PaymentScreen(props) {
       <CheckoutSteps step1 step2 step3></CheckoutSteps>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Pago</h1>
+          <h1>Metodos de Pago</h1>
         </div>
         <div>
           <div>
@@ -32,12 +33,28 @@ export default function PaymentScreen(props) {
               type="radio"
               id="paypal"
               value="Paypal"
-              name="paypalMethod"
+              name="paymentMethod"
               required
+              checked
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></input>
             <label htmlFor="paypal">
               PayPal <i class="fab fa-cc-paypal"></i>
+            </label>
+          </div>
+        </div>
+        <div>
+          <div>
+            <input
+              type="radio"
+              id="oxxo"
+              value="Oxxo"
+              name="paymentMethod"
+              required
+              onChange={(e) => setPaymentMethod(e.target.value)}
+            ></input>
+            <label htmlFor="oxxo">
+              Oxxo <i class="fab fa-cc-paypal"></i>
             </label>
           </div>
         </div>

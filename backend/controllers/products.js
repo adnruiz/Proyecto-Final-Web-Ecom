@@ -7,12 +7,12 @@ const getProducts = (req, res) => {
     })
     .catch((error) => {
       console.log("Error viewing products", error);
-      return res.status(500).send("Error viewing products");
+      return res.status(500).send({messege: "Error viewing products"});
     });
 };
 
 const getProduct = (req, res) => {
-  const { productId } = req.params;
+  const { productId } = req.params; 
   ProductsService.getProduct(productId)
     .then((product) => {
       return res.send(product);

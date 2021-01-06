@@ -17,7 +17,7 @@ const initialState = {
       : null,
   },
   cart: {
-    cartItems: localStorage.getItem("cartItems")
+    cartItems: parseInt(localStorage.getItem("cartItems"))
       ? JSON.parse(localStorage.getItem("cartItems"))
       : [],
     shippingAddress: localStorage.getItem("shippingAddress")

@@ -14,6 +14,7 @@ export default function Header() {
   const signoutHandler = () => {
     dispatch(signout());
   };
+  const productsHandler = () => {};
 
   return (
     <nav className="navbar navbar-expand-lg sticky-top">
@@ -62,6 +63,9 @@ export default function Header() {
                   <ul className="dropdown-item">
                     <Link to="#signout" onClick={signoutHandler}>
                       Cerrar sesion <i class="fas fa-sign-out-alt"></i>
+                    </Link>
+                    <Link to="/products" onClick={productsHandler}>
+                      Productos <i class="fas fa-sign-out-alt"></i>
                     </Link>
                   </ul>
                 </div>

@@ -2,7 +2,7 @@ const OrderService = require("../services/ordersService");
 const { isAuth } = require("../utils");
 
 const createOrder = (req, res) => {
-  isAuth;
+  isAuth; 
   const {
     orderItems,
     shippingAddress,

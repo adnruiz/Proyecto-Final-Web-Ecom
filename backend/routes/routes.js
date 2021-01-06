@@ -3,10 +3,10 @@ const productController = require("../controllers/products");
 const userController = require("../controllers/usersController");
 const directionsController = require("../controllers/directionController");
 const ordersController = require("../controllers/ordersController");
-const router = express.Router();
+const router = express.Router(); 
 
 //Products
-router.post("/products", productController.createProduct);
+router.post("/products", productController.createProduct); 
 router.get("/products", productController.getProducts);
 router.get("/products/:productId", productController.getProduct);
 router.put("/products/:productId", productController.updateProduct);

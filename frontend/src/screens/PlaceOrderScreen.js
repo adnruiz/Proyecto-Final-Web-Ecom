@@ -9,6 +9,7 @@ export default function PlaceOrderScreen(props) {
     props.history.push("/payment");
   }
 
+  //Funcion para obtener pago total
   const toPrice = (num) => Number(num.toFixed(2));
   cart.itemPrice = toPrice(
     cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
@@ -31,7 +32,7 @@ export default function PlaceOrderScreen(props) {
                 <h2>Envio</h2>
                 <p>
                   <strong>Nombre:</strong>
-                  {cart.shippingAddress.fullname}
+                  {cart.shippingAddress.fullName}
                   <br />
                   <strong>Direccion:</strong>
                   {cart.shippingAddress.address},{cart.shippingAddress.city},
