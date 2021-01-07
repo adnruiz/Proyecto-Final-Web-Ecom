@@ -22,6 +22,7 @@ router.delete("/users/:userId", userController.deleteUser);
 router.post("/directions/register", directionsController.createDirection);
 
 //orders
-router.post("/orders", ordersController.createOrder);
+//router.post("/orders", ordersController.createOrder);
+
 
 module.exports = router;

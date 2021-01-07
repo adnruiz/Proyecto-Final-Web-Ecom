@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const routes = require("./routes/routes");
 const dotenv = require("dotenv");
+const orderRouter = require("./routes/orderRoute");
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api", routes);
+app.use("/api/orders", orderRouter);
 
 // simple route
 app.get("/", (req, res) => {
