@@ -14,6 +14,7 @@ import ShippingAdressScreen from "./screens/ShippingAdressScreen";
 import PaymentScreen from "./screens/PaymentScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
+import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 
 <link
   rel="stylesheet"
@@ -35,7 +36,9 @@ function App() {
         <Route path="/payment" component={PaymentScreen}></Route>
         <Route path="/placeorder" component={PlaceOrderScreen}></Route>
         <Route path="/order/:id" component={OrderScreen}></Route>
+        <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
         <Route path="/" component={HomeScreen} exact></Route>
+        
         <Footer></Footer>
       </div>
     </BrowserRouter>

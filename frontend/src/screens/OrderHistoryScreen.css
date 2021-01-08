@@ -1,0 +1,17 @@
+.table {
+  width: 90%;
+  border-collapse: collapse;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.table tbody tr:nth-last-of-type(odd) {
+  background-color: #f4f4f4;
+}
+.table td,
+.table th {
+  text-align: left;
+  border: 0.1rem solid #e4e4e4e4;
+  padding: 0.5rem;
+}

@@ -64,9 +64,14 @@ export default function Header() {
                     <Link to="#signout" onClick={signoutHandler}>
                       Cerrar sesion <i class="fas fa-sign-out-alt"></i>
                     </Link>
-                    <Link to="/products" onClick={productsHandler}>
-                      Productos <i class="fas fa-sign-out-alt"></i>
-                    </Link>
+                    <li>
+                      <Link to="/products" onClick={productsHandler}>
+                        Productos <i class="fas fa-sign-out-alt"></i>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/orderhistory">Historial de ordenes</Link>
+                    </li>
                   </ul>
                 </div>
               </div>
