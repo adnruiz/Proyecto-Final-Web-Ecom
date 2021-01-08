@@ -1,24 +1,51 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { detailsUser } from "../actions/userActions";
+import { detailsUser, updateUserProfile } from "../actions/userActions";
 import MessageBox from "../components/MessageBox";
 import LoadingBox from "../components/LoadingBox";
 import "./ProfileScreen.css";
+import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
 
 export default function ProfileScreen() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [isAdmin, setAdmin] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
 
+  const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
+  const {
+    success: successUpdate,
+    error: errorUpdate,
+    loading: loadingUpdate,
+  } = userUpdateProfile;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(detailsUser(userInfo._id));
-  }, [dispatch, userInfo]);
+    if (!user) {
+      dispatch({ type: USER_UPDATE_PROFILE_RESET });
+      dispatch(detailsUser(userInfo._id));
+    } else {
+      setName(user.name);
+      setEmail(user.email);
+      setAdmin(user.isAdmin);
+    }
+  }, [dispatch, userInfo._id, user]);
 
   const submitHandler = (e) => {
     e.preventDefault();
     //dispatch update profile
+    if (password !== confirmPassword) {
+      alert("La contraseña no coincide.");
+    } else {
+      dispatch(
+        updateUserProfile({ userId: user._id, name, email, isAdmin, password })
+      );
+    }
   };
 
   return (
@@ -33,6 +60,15 @@ export default function ProfileScreen() {
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <>
+            {loadingUpdate && <LoadingBox></LoadingBox>}
+            {errorUpdate && (
+              <MessageBox variant="danger">{errorUpdate}</MessageBox>
+            )}
+            {successUpdate && (
+              <MessageBox variant="primary">
+                Peril actualizado correctamente
+              </MessageBox>
+            )}
             <div className="form-group">
               <label htmlFor="name">Nombre:</label>
               <input
@@ -40,7 +76,8 @@ export default function ProfileScreen() {
                 type="text"
                 placeholder="Ingresa tu nombre"
                 className="form-control"
-                value={user.name}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               ></input>
             </div>
             <div className="form-group">
@@ -50,7 +87,8 @@ export default function ProfileScreen() {
                 type="email"
                 placeholder="Ingresa tu correo"
                 className="form-control"
-                value={user.email}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               ></input>
             </div>
             <div className="form-group">
@@ -60,7 +98,8 @@ export default function ProfileScreen() {
                 type="text"
                 placeholder="Vededor"
                 className="form-control"
-                value={user.isAdmin}
+                value={isAdmin}
+                onChange={(e) => setAdmin(e.target.value)}
               ></input>
             </div>
             <div className="form-group">
@@ -70,6 +109,7 @@ export default function ProfileScreen() {
                 type="password"
                 placeholder="Ingresa tu contraseña"
                 className="form-control"
+                onChange={(e) => setPassword(e.target.value)}
               ></input>
             </div>
             <div className="form-group">
@@ -79,6 +119,7 @@ export default function ProfileScreen() {
                 type="password"
                 placeholder="Confirma tu contraseña"
                 className="form-control"
+                onChange={(e) => setConfirmPassword(e.target.value)}
               ></input>
             </div>
             <div className="form-group">

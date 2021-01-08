@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import { BrowserRouter, Route } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
-
+import AdminRoute from "./components/AdminRoute";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CartScreen from "./screens/CartScreen";
 import SigninScreen from "./screens/SigninScreen";
@@ -16,6 +16,8 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import PrivateRoute from "./components/PrivateRoute";
+import ProductListScreen from "./screens/ProductListScreen";
 
 <link
   rel="stylesheet"
@@ -38,9 +40,13 @@ function App() {
         <Route path="/placeorder" component={PlaceOrderScreen}></Route>
         <Route path="/order/:id" component={OrderScreen}></Route>
         <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
-        <Route path="/profile" component={ProfileScreen}></Route>
+        <PrivateRoute path="/profile" component={ProfileScreen}></PrivateRoute>
+        <AdminRoute
+          path="/productlist"
+          component={ProductListScreen}
+        ></AdminRoute>
         <Route path="/" component={HomeScreen} exact></Route>
-        
+
         <Footer></Footer>
       </div>
     </BrowserRouter>

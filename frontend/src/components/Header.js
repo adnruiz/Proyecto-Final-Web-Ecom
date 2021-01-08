@@ -84,6 +84,37 @@ export default function Header() {
               </Link>
             )}
           </li>
+          <li className="nav-item">
+            {userInfo && userInfo.isAdmin && (
+              <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton2"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                ></button>
+                <Link to="#admin">Admin</Link>
+                <div
+                  class="dropdown-menu"
+                  aria-labelledby="dropdownMenuButton2"
+                >
+                  <ul className="dropdown-item">
+                    <li>
+                      <Link to="/productlist">Productos</Link>
+                    </li>
+                    <li>
+                      <Link to="/orderlist">Ordenes</Link>
+                    </li>
+                    <li>
+                      <Link to="/userlist">Usuarios</Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            )}
+          </li>
           <li className="nav-item active">
             <Link className="nav-link" to="/cart">
               Carrito<i className="fas fa-shopping-cart"></i>
