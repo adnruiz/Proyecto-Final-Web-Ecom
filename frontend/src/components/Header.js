@@ -70,6 +70,9 @@ export default function Header() {
                       </Link>
                     </li>
                     <li>
+                      <Link to="/profile">Perfil</Link>
+                    </li>
+                    <li>
                       <Link to="/orderhistory">Historial de ordenes</Link>
                     </li>
                   </ul>

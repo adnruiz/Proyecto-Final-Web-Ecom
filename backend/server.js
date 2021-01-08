@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const routes = require("./routes/routes");
 const dotenv = require("dotenv");
 const orderRouter = require("./routes/orderRoute");
+const userRouter = require("./routes/userRouter");
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api", routes);
 app.use("/api/orders", orderRouter);
+app.use("/api/users", userRouter);
 app.get("/api/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID || "sb");
 });

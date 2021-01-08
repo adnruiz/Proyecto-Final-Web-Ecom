@@ -43,7 +43,7 @@ const signinUser = async (req, res) => {
     res.status(401).send({ message: "Correo invalido" });
   }
 };
-
+ 
 const updateUser = (req, res) => {
   const { userId } = req.params;
   const { name, email, isAdmin, password } = req.body;
@@ -86,9 +86,22 @@ const deleteUser = (req, res) => {
     });
 };
 
+const findUser = (req, res) => {
+  const { userId } = req.params;
+  UsersService.findUser(userId)
+    .then((user) => {
+      return res.status(500).send(user);
+    })
+    .catch((error) => {
+      console.log("Error finding user", error);
+      return res.status(500).send("Error finding user");
+    });
+};
+
 module.exports = {
   createUser,
   signinUser,
   updateUser,
   deleteUser,
+  findUser,
 };
