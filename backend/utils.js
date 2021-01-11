@@ -47,4 +47,5 @@ const isAdmin = (req, res, next) => {
 module.exports = {
   generateToken,
   isAuth,
+  isAdmin,
 };

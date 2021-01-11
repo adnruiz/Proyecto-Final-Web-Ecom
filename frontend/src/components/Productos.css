@@ -4,9 +4,3 @@
   border-radius: 0.5rem;
   margin: 1rem;
 }
-.btn-carrito:hover {
-  color: #235784;
-  background: #03121f !important;
-  box-shadow: 0 0 15px #070222, 0 0 40px #2196f3, 0 0 80px #2196f3 !important;
-  border-radius: 8px;
-}

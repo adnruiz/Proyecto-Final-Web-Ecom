@@ -3,20 +3,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../actions/productActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
+import "./ProductListScreen.css";
 
 export default function ProductListScreen(props) {
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(listProducts());
   }, [dispatch]);
+
   const deleteHandler = () => {
-    /// TODO: dispatch delete action
+    // dispatch delete action
   };
+
   return (
     <div>
-      <h1>Products</h1>
+      <h1>Productos</h1>
+
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
@@ -26,11 +31,11 @@ export default function ProductListScreen(props) {
           <thead>
             <tr>
               <th>ID</th>
-              <th>NAME</th>
-              <th>PRICE</th>
-              <th>CATEGORY</th>
-              <th>BRAND</th>
-              <th>ACTIONS</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Categoria</th>
+              <th>Marca</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -44,19 +49,20 @@ export default function ProductListScreen(props) {
                 <td>
                   <button
                     type="button"
-                    className="small"
+                    className="btn btn-primary"
                     onClick={() =>
                       props.history.push(`/product/${product._id}/edit`)
                     }
                   >
-                    Edit
+                    <i class="fas fa-edit"></i>
                   </button>
+
                   <button
                     type="button"
-                    className="small"
+                    className="btn btn-primary"
                     onClick={() => deleteHandler(product)}
                   >
-                    Delete
+                    <i class="fas fa-trash-alt"></i>
                   </button>
                 </td>
               </tr>

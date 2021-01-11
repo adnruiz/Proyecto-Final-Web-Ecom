@@ -26,6 +26,7 @@ userRouter.put(
     if (user) {
       user.name = req.body.name || user.name;
       user.email = req.body.email || user.email;
+      user.isAdmin = req.body.isAdmin || user.isAdmin;
       if (req.body.password) {
         user.password = bcrypt.hashSync(req.body.password, 8);
       }

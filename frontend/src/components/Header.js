@@ -37,7 +37,7 @@ export default function Header() {
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
         <input
-          className="form-control mr-sm-2"
+          className="form-control mr-sm-4"
           type="search"
           placeholder="Search"
           aria-label="Search"
@@ -61,12 +61,9 @@ export default function Header() {
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <ul className="dropdown-item">
-                    <Link to="#signout" onClick={signoutHandler}>
-                      Cerrar sesion <i class="fas fa-sign-out-alt"></i>
-                    </Link>
                     <li>
-                      <Link to="/products" onClick={productsHandler}>
-                        Productos <i class="fas fa-sign-out-alt"></i>
+                      <Link to="#signout" onClick={signoutHandler}>
+                        Cerrar sesion <i class="fas fa-sign-out-alt"></i>
                       </Link>
                     </li>
                     <li>
@@ -94,8 +91,10 @@ export default function Header() {
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
-                ></button>
-                <Link to="#admin">Admin</Link>
+                >
+                  <Link to="#admin">Admin</Link>
+                </button>
+
                 <div
                   class="dropdown-menu"
                   aria-labelledby="dropdownMenuButton2"
