@@ -1,44 +1,43 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createProduct, listProducts } from "../actions/productActions";
+import { listProducts, deleteProduct } from "../actions/productActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import "./ProductListScreen.css";
-import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
+import { PRODUCT_DELETE_RESET } from "../constants/productConstants";
 
 export default function ProductListScreen(props) {
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
-  const productCreate = useSelector((state) => state.productCreate);
+  const productDelete = useSelector((state) => state.productDelete);
   const {
-    loading: loadingCreate,
-    error: errorCreate,
-    success: successCreate,
-    product: createdProduct,
-  } = productCreate;
+    loading: loadingDelete,
+    error: errorDelete,
+    success: successDelete,
+  } = productDelete;
 
   const dispatch = useDispatch();
   useEffect(() => {
-    if (successCreate) {
-      dispatch({ type: PRODUCT_CREATE_RESET });
-      props.history.push(`/product/${createdProduct._id}/edit`);
+    //delete product
+    if (successDelete) {
+      dispatch({ type: PRODUCT_DELETE_RESET });
     }
     dispatch(listProducts());
-  }, [createdProduct, dispatch, props.history, successCreate]);
+  }, [dispatch, props.history, successDelete]);
 
   //Handlers
-  const deleteHandler = () => {
-    // dispatch delete action
-  };
-  const createHandler = () => {
-    dispatch(createProduct());
+  const deleteHandler = (product) => {
+    if (window.confirm("Are you sure to delete?")) {
+      dispatch(deleteProduct(product._id));
+    }
   };
 
   return (
     <div>
       <h1>Productos</h1>
-
+      {loadingDelete && <LoadingBox></LoadingBox>}
+      {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
@@ -89,17 +88,6 @@ export default function ProductListScreen(props) {
           </tbody>
         </table>
       )}
-      <div className="row">
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={createHandler}
-        >
-          <i class="fas fa-plus-square fa-5x"></i>
-        </button>
-      </div>
-      {loadingCreate && <LoadingBox></LoadingBox>}
-      {errorCreate && <MessageBox variant="danger">{errorCreate}</MessageBox>}
     </div>
   );
 }

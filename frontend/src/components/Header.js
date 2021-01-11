@@ -114,6 +114,11 @@ export default function Header() {
                       </Link>
                     </li>
                     <li>
+                      <Link to="/product/create">
+                        <i class="fas fa-plus-circle"></i> Producto
+                      </Link>
+                    </li>
+                    <li>
                       <Link to="/orderlist">
                         <i class="fas fa-cogs"></i> Ordenes
                       </Link>

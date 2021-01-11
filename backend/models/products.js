@@ -9,8 +9,8 @@ const ProductSchema = new Schema(
     price: { type: Number, required: true },
     countInStock: { type: Number, required: true },
     brand: { type: String, required: true },
-    rating: { type: Number, required: true },
-    numReviews: { type: Number, required: true },
+    rating: { type: Number },
+    numReviews: { type: Number },
     description: { type: String, required: true },
   },
   { timestamps: true }

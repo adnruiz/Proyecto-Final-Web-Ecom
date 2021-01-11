@@ -18,13 +18,15 @@ import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import PrivateRoute from "./components/PrivateRoute";
 import ProductListScreen from "./screens/ProductListScreen";
+import ProductEditScreen from "./screens/ProductEditScreen";
+import ProductCreateScreen from "./screens/ProductCreateScreen";
 
 <link
   rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
   integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
   crossorigin="anonymous"
-/>; 
+/>;
 
 function App() {
   return (
@@ -32,7 +34,13 @@ function App() {
       <div className="App">
         <Header></Header>
         <Route path="/cart/:id?" component={CartScreen}></Route>
-        <Route path="/product/:id" component={ProductScreen} exact></Route>
+        <Route path="/product/:id" component={ProductScreen}></Route>
+        <Route
+          path="/product/:id/edit"
+          component={ProductEditScreen}
+          exact
+        ></Route>
+        <Route path="/product/create" component={ProductCreateScreen}></Route>
         <Route path="/signin" component={SigninScreen}></Route>
         <Route path="/register" component={RegisterScreen}></Route>
         <Route path="/shipping" component={ShippingAdressScreen}></Route>

@@ -20,7 +20,7 @@ const getProduct = (req, res) => {
     })
     .catch((error) => {
       console.log("Error viewing products", error);
-      return res.status(500).send("Error viewing products");
+      return res.status(500).send({ message: "Error viewing products" });
     });
 };
 
@@ -45,8 +45,6 @@ const updateProduct = (req, res) => {
     price,
     countInStock,
     brand,
-    rating,
-    numReviews,
     description,
   } = req.body;
 
@@ -57,8 +55,6 @@ const updateProduct = (req, res) => {
     !price ||
     !countInStock ||
     !brand ||
-    !rating ||
-    !numReviews ||
     !description
   ) {
     return res.status(400).send("Missing Params!");
@@ -99,8 +95,6 @@ const createProduct = (req, res) => {
     price,
     countInStock,
     brand,
-    rating,
-    numReviews,
     description,
   } = req.body;
 
@@ -111,11 +105,9 @@ const createProduct = (req, res) => {
     !price ||
     !countInStock ||
     !brand ||
-    !rating ||
-    !numReviews ||
     !description
   ) {
-    return res.status(400).send("Missing Params!");
+    return res.status(400).send({ message: "Missing Params!" });
   }
 
   ProductsService.createProduct(req.body)
@@ -124,7 +116,7 @@ const createProduct = (req, res) => {
     })
     .catch((error) => {
       console.log("Error creating product", error);
-      return res.status(500).send("Error creating product");
+      return res.status(500).send({ message: "Error creating product" });
     });
 };
 
