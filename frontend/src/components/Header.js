@@ -14,7 +14,7 @@ export default function Header() {
   const signoutHandler = () => {
     dispatch(signout());
   };
-  const productsHandler = () => {};
+  //const productsHandler = () => {};
 
   return (
     <nav className="navbar navbar-expand-lg sticky-top">
@@ -57,27 +57,33 @@ export default function Header() {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <Link to="#">{userInfo.name}</Link>
+                  <Link to="#">
+                    {userInfo.name} <i class="fas fa-user"></i>
+                  </Link>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <ul className="dropdown-item">
                     <li>
                       <Link to="#signout" onClick={signoutHandler}>
-                        Cerrar sesion <i class="fas fa-sign-out-alt"></i>
+                        <i class="fas fa-sign-out-alt fa-2x"></i> Cerrar sesion
                       </Link>
                     </li>
                     <li>
-                      <Link to="/profile">Perfil</Link>
+                      <Link to="/profile">
+                        <i class="far fa-id-badge fa-2x"></i> Perfil
+                      </Link>
                     </li>
                     <li>
-                      <Link to="/orderhistory">Historial de ordenes</Link>
+                      <Link to="/orderhistory">
+                        <i class="fas fa-history fa-2x"></i> Ordenes
+                      </Link>
                     </li>
                   </ul>
                 </div>
               </div>
             ) : (
               <Link className="nav-link" to="/signin">
-                Iniciar Sesion
+                <i class="fas fa-sign-in-alt fa-2x"></i>Login
               </Link>
             )}
           </li>
@@ -92,7 +98,9 @@ export default function Header() {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <Link to="#admin">Admin</Link>
+                  <Link to="#admin">
+                    <i class="fas fa-address-book fa-2x"></i>
+                  </Link>
                 </button>
 
                 <div
@@ -101,13 +109,19 @@ export default function Header() {
                 >
                   <ul className="dropdown-item">
                     <li>
-                      <Link to="/productlist">Productos</Link>
+                      <Link to="/productlist">
+                        <i class="fas fa-cogs"></i> Productos
+                      </Link>
                     </li>
                     <li>
-                      <Link to="/orderlist">Ordenes</Link>
+                      <Link to="/orderlist">
+                        <i class="fas fa-cogs"></i> Ordenes
+                      </Link>
                     </li>
                     <li>
-                      <Link to="/userlist">Usuarios</Link>
+                      <Link to="/userlist">
+                        <i class="fas fa-cogs"></i> Usuarios
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -116,7 +130,7 @@ export default function Header() {
           </li>
           <li className="nav-item active">
             <Link className="nav-link" to="/cart">
-              Carrito<i className="fas fa-shopping-cart"></i>
+              <i className="fas fa-shopping-cart fa-2x"></i>
               {cartItems.length > 0 && (
                 <span className="badge badge-primary">{cartItems.length}</span>
               )}

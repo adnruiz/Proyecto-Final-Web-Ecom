@@ -32,7 +32,7 @@ function App() {
       <div className="App">
         <Header></Header>
         <Route path="/cart/:id?" component={CartScreen}></Route>
-        <Route path="/product/:id" component={ProductScreen}></Route>
+        <Route path="/product/:id" component={ProductScreen} exact></Route>
         <Route path="/signin" component={SigninScreen}></Route>
         <Route path="/register" component={RegisterScreen}></Route>
         <Route path="/shipping" component={ShippingAdressScreen}></Route>

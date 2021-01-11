@@ -116,7 +116,7 @@ export default function CartScreen(props) {
                   onClick={checkoutHandler}
                   disabled={cartItems.length === 0}
                 >
-                  Realizar Compra
+                  <i class="fas fa-cash-register fa-2x"></i> Realizar Compra
                 </button>
               </li>
             </ul>

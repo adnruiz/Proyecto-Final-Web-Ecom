@@ -125,7 +125,7 @@ export default function ProfileScreen() {
             <div className="form-group">
               <label />
               <button className="btn btn-primary" type="submit">
-                Modificar
+                <i class="fas fa-edit fa-3x"></i>
               </button>
             </div>
           </>
